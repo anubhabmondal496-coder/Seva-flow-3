@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* Tailwind v4 — enable class-based dark mode */
+@variant dark (&:where(.dark, .dark *));
+
+/* ===== ROOT DESIGN TOKENS ===== */
+:root {
+  --primary: #2e7d32;
+  --primary-light: #4caf50;
+  --primary-dark: #1b5e20;
+  --accent: #e65100;
+  --accent-light: #ff8f00;
+  --bg: #f1f8e9;
+  --bg-card: #ffffff;
+  --text-dark: #1b4332;
+  --text-muted: #546e7a;
+  --text-light: #ffffff;
+  --border: #c8e6c9;
+  --focus-ring: #2962ff;
+}
+
+/* ===== DARK MODE TOKENS ===== */
+.dark {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --text-dark: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --primary: #4ade80;
+  --primary-dark: #22c55e;
+}
+
+/* ===== DARK MODE: GLOBAL ELEMENT OVERRIDES ===== */
+.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark .bg-white          { background-color: #1e293b !important; }
+.dark .bg-gray-50        { background-color: #1e293b !important; }
+.dark .bg-gray-100       { background-color: #283548 !important; }
+.dark .text-gray-900     { color: #f1f5f9 !important; }
+.dark .text-gray-800     { color: #e2e8f0 !important; }
+.dark .text-gray-700     { color: #cbd5e1 !important; }
+.dark .text-gray-600     { color: #94a3b8 !important; }
+.dark .text-gray-500     { color: #64748b !important; }
+.dark .border-gray-100   { border-color: #334155 !important; }
+.dark .border-gray-200   { border-color: #334155 !important; }
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg         { box-shadow: 0 2px 12px rgba(0,0,0,0.5) !important; }
+
+/* Feature & scheme cards */
+.dark .ring-blue-200     { --tw-ring-color: #1e3a5f !important; }
+.dark .ring-emerald-200  { --tw-ring-color: #14532d !important; }
+.dark .ring-violet-200   { --tw-ring-color: #3b0764 !important; }
+.dark .ring-orange-200   { --tw-ring-color: #7c2d12 !important; }
+.dark .ring-sky-200      { --tw-ring-color: #0c4a6e !important; }
+.dark .ring-pink-200     { --tw-ring-color: #831843 !important; }
+.dark .ring-teal-200     { --tw-ring-color: #134e4a !important; }
+.dark .ring-yellow-200   { --tw-ring-color: #713f12 !important; }
+.dark .ring-indigo-200   { --tw-ring-color: #312e81 !important; }
+.dark .bg-blue-50        { background-color: #0c1a2e !important; }
+.dark .bg-emerald-50     { background-color: #061710 !important; }
+.dark .bg-violet-50      { background-color: #130420 !important; }
+.dark .bg-orange-50      { background-color: #1f0d00 !important; }
+.dark .bg-sky-50         { background-color: #071e2e !important; }
+.dark .bg-pink-50        { background-color: #1f0413 !important; }
+.dark .bg-teal-50        { background-color: #041412 !important; }
+.dark .bg-yellow-50      { background-color: #1c1200 !important; }
+.dark .bg-indigo-50      { background-color: #0d0b2e !important; }
+
+/* Inputs & selects */
+.dark input, .dark select, .dark textarea {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+/* Madhubani border dark mode — slightly dimmed */
+.dark [aria-hidden="true"] svg rect:first-child { fill: #1e1a0e !important; }
+
+
+
+/* ===== ACCESSIBILITY: HIGH CONTRAST MODE ===== */
+body.high-contrast {
+  --primary: #005a00;
+  --primary-light: #007a00;
+  --primary-dark: #002d00;
+  --accent: #b34700;
+  --bg: #000000;
+  --bg-card: #111111;
+  --text-dark: #ffffff;
+  --text-muted: #dddddd;
+  --border: #00ff00;
+}
+
+body.high-contrast * {
+  border-color: #00ff00 !important;
+  color: #ffffff;
+}
+
+body.high-contrast button,
+body.high-contrast a {
+  outline: 2px solid #ffff00 !important;
+}
+
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #00ff00 !important;
+}
+
+/* ===== ACCESSIBILITY: COLORBLIND SAFE MODE (Deuteranopia/Protanopia friendly) ===== */
+/* Replaces green/red with blue/amber - safe for ~8% of men with red-green blindness */
+body.colorblind-safe {
+  --primary: #1565c0;       /* Royal blue replaces green */
+  --primary-light: #1976d2;
+  --primary-dark: #0d47a1;
+  --primary-bg: #e3f2fd;
+  --accent: #e65100;        /* Deep amber replaces typical red */
+  --bg: #fafafa;
+}
+
+body.colorblind-safe .bg-green-700 { background-color: #1565c0 !important; }
+body.colorblind-safe .bg-green-600 { background-color: #1976d2 !important; }
+body.colorblind-safe .bg-green-500 { background-color: #1e88e5 !important; }
+body.colorblind-safe .bg-green-100 { background-color: #e3f2fd !important; }
+body.colorblind-safe .bg-green-50  { background-color: #f0f7ff !important; }
+body.colorblind-safe .text-green-700 { color: #1565c0 !important; }
+body.colorblind-safe .text-green-600 { color: #1976d2 !important; }
+body.colorblind-safe .text-green-800 { color: #0d47a1 !important; }
+body.colorblind-safe .border-green-700 { border-color: #1565c0 !important; }
+body.colorblind-safe .border-green-500 { border-color: #1976d2 !important; }
+body.colorblind-safe .border-green-300 { border-color: #64b5f6 !important; }
+body.colorblind-safe .ring-green-500  { --tw-ring-color: #1976d2 !important; }
+body.colorblind-safe .hover\:bg-green-700:hover { background-color: #0d47a1 !important; }
+body.colorblind-safe .hover\:bg-green-50:hover  { background-color: #e3f2fd !important; }
+body.colorblind-safe .from-green-700 { --tw-gradient-from: #0d47a1 !important; }
+body.colorblind-safe .to-emerald-600 { --tw-gradient-to: #1976d2 !important; }
+
+/* ===== FONT SIZE SCALING ===== */
+body.text-large  { font-size: 118%; }
+body.text-xlarge { font-size: 136%; }
+
+/* ===== FOCUS INDICATOR (WCAG 2.1 AA) ===== */
+*:focus-visible {
+  outline: 3px solid var(--focus-ring) !important;
+  outline-offset: 3px;
+}
+
+/* ===== BASE STYLES ===== */
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== SKIP TO CONTENT (Screen readers) ===== */
+.skip-link {
+  position: absolute; top: -100px; left: 8px;
+  background: #1565c0; color: #fff;
+  padding: 8px 16px; border-radius: 4px;
+  font-weight: bold; z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 8px; }
+
+/* ===== PWD BADGE PATTERN (uses shape + color for colorblind safety) ===== */
+.pwd-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #e3f2fd;
+  border: 2px solid #1565c0;
+  color: #0d47a1;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+/* ===== Scrollbar Hide Utility ===== */
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ===== Safe area for mobile bottom nav ===== */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-safe-bottom {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
